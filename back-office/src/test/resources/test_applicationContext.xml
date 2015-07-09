@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-4.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 使用annotation注解的方式时，需要添加上此行配置 -->
+    <context:annotation-config />
+
+    <context:component-scan base-package="net.zz.validator" />
+
+    <!-- 注解式AOP -->
+    <aop:aspectj-autoproxy />
+
+    <!-- 代理模式用CGLIB，针对类的代理 -->
+    <aop:aspectj-autoproxy proxy-target-class="true" />
+
+
+	<!-- 注意，此转为测试使用： 有些依赖 servlet的注入，在单元测试时就会出错，入：webAppRootKey, 可以在此设置 -->
+	<!-- 注意，因为正式环境下的颚application.xml里面也有一个同样的bean，所以需要将正式环境内的Properties文件集成过来 -->
+ <!--  	<bean name="MockHttpSession" class="org.springframework.mock.web.MockHttpSession"></bean>
+	<bean name="MockHttpServletRequest" class="org.springframework.mock.web.MockHttpServletRequest"></bean>
+-->
+
+</beans>
