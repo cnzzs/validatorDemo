@@ -8,10 +8,10 @@ import org.springframework.stereotype.Component;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import java.lang.reflect.Method;
-import org.springframework.validation.BindException;
 import java.util.Set;
 
 @Component
+@Deprecated
 public class Validate {
 
     public MethodValidator getMethodValidator() {
